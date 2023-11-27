@@ -117,6 +117,9 @@ group by
 order by
     s.customer,
     s.site;
+//
+
+
 select
     date,
     transport,

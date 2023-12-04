@@ -1,4 +1,6 @@
-//SQL Queries that i used to get answers for questions.
+/*SQL Queries that i used to get answers for questions.*/
+
+/* 1.	Na jaké kategorii produktů máme největší obrat? A zajímalo by mě i jestli se to v jednotlivých měsících mění. */
 
 select
     category,
@@ -16,7 +18,8 @@ group by
 order by
     category,
     monthname(date);
-//
+
+/* 2.	Který den v týdnu je nejsilnější na počet objednávek? */
 
 
 select
@@ -28,9 +31,9 @@ from
     join prod p on p.product = t.product
 group by
     dayname(date);
-//
 
 
+/*
 select
     transaction_id,
     count(category)
@@ -41,8 +44,9 @@ where
     category = 'Televize'
 group by
     transaction_id;
-//
+*/
 
+/* 3.	Která kategorie se prodává nejčastěji spolu s produkty z kategorie Televize (resp. jsou spolu v jedné objednávce)? */
 
 SELECT
     top 1 p.category AS top_nejprodavanejsi
@@ -70,8 +74,9 @@ GROUP BY
     p1.category
 ORDER BY
     COUNT(DISTINCT t1.transaction_id) DESC;
-//
 
+
+/* 4.	Od 18. 3. 2022 jsem klukům z marketingu navýšil budget na online marketingových platformách (Google Ads, Sklik, Facebook). Dokážeš mi říct, jestli to vedlo k nějaké změně v prodeji? */
 
 SELECT
     CASE
@@ -87,7 +92,7 @@ group by
     period
 ORDER BY
     Period;
-//
+
 
 
 SELECT
